@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feyzi Ustanın Yeri - En İyi Döner Deneyimi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #f4a261;
+            --dark-color: #1d3557;
+            --light-color: #f1faee;
+            --white: #ffffff;
+            --gray: #6c757d;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--dark-color), var(--primary-color));
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .cta-button {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(244, 162, 97, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(29, 53, 87, 0.8), rgba(230, 57, 70, 0.8)),
+                        url('https://images.unsplash.com/photo-1544025162-d76694265947?w=1920') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(244, 162, 97, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--dark-color);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: var(--light-color);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: var(--gray);
+        }
+
+        /* Menu Section */
+        .menu {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-item {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-image {
+            height: 250px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .menu-content {
+            padding: 25px;
+        }
+
+        .menu-content h3 {
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        .menu-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .menu-price {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 80px 0;
+            background: var(--light-color);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: var(--dark-color);
+            color: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--secondary-color);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .contact-item-icon {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(244, 162, 97, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #0f1f3a;
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    🍽️ Feyzi Ustanın<span>Yeri</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Ana Sayfa</a></li>
+                    <li><a href="#features">Özellikler</a></li>
+                    <li><a href="#menu">Menü</a></li>
+                    <li><a href="#gallery">Galeri</a></li>
+                    <li><a href="#contact">İletişim</a></li>
+                </ul>
+                <a href="#contact" class="cta-button">Sipariş Ver</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>En İyi Döner Deneyimi</h1>
+            <p>Taze etler, özel tarifler ve 30 yıllık tecrübe ile lezzetin adresi</p>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn btn-primary">Menüyü İncele</a>
+                <a href="#contact" class="btn btn-outline">İletişime Geç</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Neden Biz?</h2>
+                <p>Müşteri memnuniyeti ve kalite her zaman önceliğimizdir</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🥩</div>
+                    <h3>Taze Etler</h3>
+                    <p>Günlük taze etler ile hazırlanan dönerlerimiz, en yüksek kalite standartlarına uygun olarak üretilir.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍🍳</div>
+                    <h3>Uzman Şefler</h3>
+                    <p>30 yıllık tecrübeye sahip ustalarımız, her döneri özel tariflerle hazırlıyor.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Hızlı Teslimat</h3>
+                    <p>Siparişleriniz 45 dakika içinde kapınızda. Sıcak ve taze teslimat garantisi.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Uygun Fiyatlar</h3>
+                    <p>Kaliteli hizmeti uygun fiyatlarla sunuyoruz. Her bütçeye uygun menü seçenekleri.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <div class="container">
+            <div class="section-title">
+                <h2>Menümüz</h2>
+                <p>Özel tariflerimizle hazırlanan lezzetler</p>
+            </div>
+
+            <!-- Tostlar -->
+            <h3 style="text-align: center; font-size: 2rem; color: var(--dark-color); margin-bottom: 30px;">Tostlar</h3>
+            <div class="menu-grid" style="margin-bottom: 50px;">
+                <div class="menu-item">
+                    <div class="menu-image">🍞</div>
+                    <div class="menu-content">
+                        <h3>Tam Tost</h3>
+                        <p>Tam ekmek arasında bol malzeme ve özel sos ile kızartılmış tost</p>
+                        <div class="menu-price">240 ₺</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-image">�</div>
+                    <div class="menu-content">
+                        <h3>Üç Çeyrek Tost</h3>
+                        <p>Üç çeyrek ekmek arasında özel sos ve malzemeler ile kızartılmış tost</p>
+                        <div class="menu-price">180 ₺</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-image">🥪</div>
+                    <div class="menu-content">
+                        <h3>Yarım Tost</h3>
+                        <p>Yarım ekmek arasında özel sos ve malzemeler ile kızartılmış tost</p>
+                        <div class="menu-price">120 ₺</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dönerler -->
+            <h3 style="text-align: center; font-size: 2rem; color: var(--dark-color); margin-bottom: 30px;">Dönerler</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-image">🍽️</div>
+                    <div class="menu-content">
+                        <h3>Tam Ekmek Döner (tavuk)</h3>
+                        <p>Tam ekmek arasında bol malzeme ve özel sos ile servis edilir</p>
+                        <div class="menu-price">220 ₺</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-image">�</div>
+                    <div class="menu-content">
+                        <h3>Üç Çeyrek (tavuk)</h3>
+                        <p>Üç çeyrek ekmek arasında özel sos ve malzemeler ile servis edilir</p>
+                        <div class="menu-price">170 ₺</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-image">�</div>
+                    <div class="menu-content">
+                        <h3>Dürüm Döner (tavuk)</h3>
+                        <p>Özel sos, turşu, domates ve soğan ile harmanlanmış dürüm döner</p>
+                        <div class="menu-price">140 ₺</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-image">🍞</div>
+                    <div class="menu-content">
+                        <h3>Yarım Ekmek Döner (tavuk)</h3>
+                        <p>Yarım ekmek arasında özel sos ve malzemeler ile servis edilir</p>
+                        <div class="menu-price">110 ₺</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Galeri</h2>
+                <p>Lezzetlerimizden kareler</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="doner1.jpg" alt="Döner 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="doner2.jpg" alt="Döner 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="doner3.jpg" alt="Döner 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="doner4.jpg" alt="Döner 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="doner5.jpg" alt="Döner 5">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: var(--white);">İletişim</h2>
+                <p style="color: rgba(255,255,255,0.8);">Bize ulaşın</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>İletişim Bilgileri</h3>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">📍</div>
+                        <div>
+                            <strong>Adres:</strong><br>
+                            Atatürk Caddesi No: 123<br>
+                            İstanbul, Türkiye
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon"></div>
+                        <div>
+                            <strong>Çalışma Saatleri:</strong><br>
+                            Her Gün: 11:00 - 23:00
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <div style="text-align: center; padding: 40px;">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 20px; color: var(--secondary-color);">Sipariş İçin</h3>
+                        <p style="font-size: 1.1rem; line-height: 1.8;">
+                            Telefon numarası ve e-posta adresi daha sonra eklenecektir.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="logo" style="color: var(--white);">
+                🍽️ Feyzi Ustanın<span>Yeri</span>
+            </div>
+            <div class="social-links">
+                <a href="#" title="Facebook">📘</a>
+                <a href="#" title="Instagram">📷</a>
+                <a href="#" title="Twitter">🐦</a>
+                <a href="#" title="WhatsApp">💬</a>
+            </div>
+            <p class="copyright">© 2024 Feyzi Ustanın Yeri. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+</body>
+</html>
